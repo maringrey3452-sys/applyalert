@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apple Device Care</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background-color: #eefbf1;
+      color: #1d1d1f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 30px 0 15px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .apple-logo {
+      width: 36px;
+      height: 36px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 8px 0 0;
+    }
+
+    .support-box {
+      max-width: 600px;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 26px;
+      margin: 40px 20px 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .support-box h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .support-box p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+
+    #popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.35);
+      z-index: 999;
+      display: none;
+    }
+
+    #popup {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      color: #000;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+      padding: 24px 20px;
+      width: 90%;
+      max-width: 330px;
+      text-align: center;
+      z-index: 1000;
+      display: none;
+    }
+
+    #popup h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    #popup p {
+      font-size: 15px;
+      margin: 8px 0;
+      line-height: 1.4;
+    }
+
+    #popup button {
+      margin-top: 16px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #34c759;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(52,199,89,0.3);
+    }
+
+    #popup button:hover {
+      background-color: #2fa74b;
+    }
+
+    .call-button {
+      display: inline-block;
+      margin-top: 14px;
+      background-color: #30d158;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(48,209,88,0.4);
+    }
+
+    .call-button:hover {
+      background-color: #27b94b;
+    }
+
+    #popup .icon {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 400px) {
+      #popup {
+        max-width: 92%;
+        padding: 20px 16px;
+      }
+
+      #popup p {
+        font-size: 14px;
+      }
+
+      #popup button, .call-button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="apple-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo" />
+    <h1>Apple Device Care</h1>
+  </header>
+
+  <div class="support-box">
+    <h2>Keeping Your Device in Top Shape</h2>
+    <p>Need help with diagnostics or device performance? Our experts can walk you through quick solutions or schedule a checkup.</p>
+    <p>📞 Priority Line: <strong>+1 (856) 605-7453</strong></p>
+  </div>
+
+  <div id="popup-overlay"></div>
+
+  <div id="popup">
+    <div class="icon">🛠️</div>
+    <h2>Device Health Check</h2>
+    <p>Your <strong>iPhone 12 Pro</strong> may need a performance refresh.</p>
+    <p>We noticed increased background activity and storage usage exceeding <strong>85%</strong>.</p>
+    <p>Regular maintenance helps extend your device’s lifespan.</p>
+    <p>Contact our support line to schedule a device optimization session.</p>
+    <a href="tel:+1 (856) 605-7453" class="call-button">📞 Speak to a Specialist</a>
+    <p>Quick support, available 24/7 for your convenience.</p>
+    <button onclick="closePopup()">Dismiss</button>
+  </div>
+
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('popup-overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('popup-overlay').style.display = 'none';
+
+      // Reopen the popup instantly
+      showPopup();
+    }
+
+    // Display popup after 2 seconds
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        showPopup();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
